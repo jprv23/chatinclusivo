@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Inclusivo con Gestos</title>
+  <link rel="stylesheet" href="./css/styles.css?v=1.1">
+
+  <style>
+    .received {
+      width: 50px;
+      height: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="loading">
+    <div>Cargando modelo...</div>
+  </div>
+
+  <div class="chat-container">
+    <div class="chat-header"><a href="/">Chat Inclusivo</a></div>
+    <div class="chat-messages" id="chatBox"></div>
+    <div class="chat-input" style="padding:0">
+      <video id="video" width="100%" playsinline muted autoplay></video>
+    </div>
+  </div>
+
+  <div style="display: none">
+    <!-- Asegúrate de agregar el div 'output' -->
+    <div id="output">Cargando...</div>
+    <div>
+      <button onclick="addExample('hola')">hola</button>
+      <button onclick="addExample('como estas')">como estas</button>
+      <button onclick="addExample('bien')">bien</button>
+      <button onclick="addExample('y tu')">y tu</button>
+      <button onclick="addExample('perfecto')">perfecto</button>
+      <button onclick="addExample('en que puedo ayudarte')">en que puedo ayudarte</button>
+      <button onclick="addExample('a realizar la tarea')">a realizar la tarea</button>
+      <button onclick="addExample('no hay problema')">no hay problema</button>
+      <button onclick="addExample('gracias')">gracias</button>
+    </div>
+
+    <div>
+      <button onclick="saveModelAsTxt()">Guardar Modelo como .txt</button>
+      <button onclick="loadModelFromTxt()">Cargar Modelo desde .txt</button>
+    </div>
+
+    <div>
+      <h3>Ejemplos Guardados</h3>
+      <ul id="exampleList"></ul>
+    </div>
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
+
+  <script>
+    const usuario = 'Persona 2';
+  </script>
+  <script src="./js/messages.js?v=1.1"></script>
+  <script src="./js/gestos.js?v=1.1"></script>
+</body>
+
+</html>

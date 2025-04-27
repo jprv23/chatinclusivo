@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opciones de Persona</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #74ebd5, #9face6);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        h1 {
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .options a {
+            display: block;
+            text-decoration: none;
+            background: #4a90e2;
+            color: white;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 12px;
+            transition: background 0.3s ease;
+        }
+
+        .options a:hover {
+            background: #357ABD;
+        }
+
+        .delete-btn {
+            margin-top: 1.5rem;
+            background: #e74c3c;
+            color: white;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+
+        .delete-btn:hover {
+            background: #c0392b;
+        }
+
+
+        @media (max-width: 400px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Elige una persona</h1>
+        <div class="options">
+            <a href="persona1.html">Persona 1 (Texto)</a>
+            <a href="persona2.html">Persona 2 (Gestos)</a>
+        </div>
+
+        <button class="delete-btn" onclick="eliminarChat()">Eliminar chat</button>
+    </div>
+
+    <script>
+        function deleteChat() {
+            fetch('server/delete_chat.php', {
+                method: 'POST'
+            })
+                .then(() => {
+                    alert("El chat ha sido eliminado.");
+                });
+        }
+
+        function eliminarChat() {
+            if (confirm("¿Estás seguro de que deseas eliminar el chat?")) {
+                deleteChat()
+            }
+        }
+    </script>
+</body>
+
+</html>
