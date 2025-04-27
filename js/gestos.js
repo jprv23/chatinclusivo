@@ -63,6 +63,7 @@ async function detectHands() {
             let is_repeat = false;
             let is_ok_add_message = true;
             let words = [];
+            let words_recived = [];
             document.querySelectorAll('.message.sent').forEach(function(item) {
               let texto = parsearMensaje(item.textContent);
               words.push(texto);
@@ -70,8 +71,13 @@ async function detectHands() {
                 is_repeat = true;
               }
             });
+
+            document.querySelectorAll('.message.received').forEach(function(item) {
+              let texto = parsearMensaje(item.textContent);
+              words_recived.push(texto)
+            });
             
-            if(!is_repeat && words.length > 0){
+            if(!is_repeat && words_recived.length > 0){
 
               if(prediction.label == "hola" && words.length != 0){
                 is_ok_add_message = false;
