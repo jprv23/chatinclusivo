@@ -70,10 +70,8 @@ async function detectHands() {
                 is_repeat = true;
               }
             });
-
-            console.log(words)
             
-            if(!is_repeat){
+            if(!is_repeat && words.length > 0){
 
               if(prediction.label == "hola" && words.length != 0){
                 is_ok_add_message = false;
