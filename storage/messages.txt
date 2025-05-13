@@ -1,0 +1,10 @@
+Persona 1: Hola
+Persona 1: ¿Necesitas ayuda?
+Persona 2: Hola!
+Persona 2: ¿Dónde encuentro el bus
+Persona 2: a la Universidad?
+Persona 1: Pasa a dos cuadras
+Persona 1: hacia la derecha
+Persona 2: Muchas gracias!
+Persona 1: De nada
+Persona 2: Hasta luego!

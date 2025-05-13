@@ -34,10 +34,10 @@ let loading = false;
 let delaySeconds = 3;
 let palabras_permitidas = [
   "hola",
-  "bien",
-  "y tu",
-  "en que puedo ayudarte",
-  "no hay problema",
+  "donde encuentro el bus",
+  "a la universidad",
+  "muchas gracias",
+  "hasta luego",
 ];
 
 async function detectHands() {
@@ -83,23 +83,35 @@ async function detectHands() {
                 is_ok_add_message = false;
               }
 
-              if(prediction.label == "bien" && words.length != 1){
+              if(prediction.label == "donde encuentro el bus" && words.length != 1){
                 is_ok_add_message = false;
               }
 
-              if(prediction.label == "y tu" && words.length != 2){
+              if(prediction.label == "a la universidad" && words.length != 2){
                 is_ok_add_message = false;
               }
 
-              if(prediction.label == "en que puedo ayudarte" && words.length != 3){
+              if(prediction.label == "muchas gracias" && words.length != 3){
                 is_ok_add_message = false;
               }
 
-              if(prediction.label == "no hay problema" && words.length != 4){
+              if(prediction.label == "hasta luego" && words.length != 4){
                 is_ok_add_message = false;
               }
 
               if(is_ok_add_message){
+                if(prediction.label == "hola"){
+                  prediction.label = "Hola!";
+                }else if(prediction.label == "donde encuentro el bus"){
+                  prediction.label = "¿Dónde encuentro el bus";
+                }else if(prediction.label == "a la universidad"){
+                  prediction.label = "a la Universidad?";
+                }else if(prediction.label == "muchas gracias"){
+                  prediction.label = "Muchas gracias!";
+                }else if(prediction.label == "hasta luego"){
+                  prediction.label = "Hasta luego!";
+                }
+
                 addMessage(prediction.label);
               }
             }
